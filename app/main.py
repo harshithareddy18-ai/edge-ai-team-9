@@ -42,6 +42,17 @@ class Batch(BaseModel):
 
 
 app = FastAPI(title="Doorbell battery API")
+
+@app.get("/")
+def root():
+    return {
+        "message": "OPTIMA Edge AI API is running!",
+        "team": 9,
+        "status": "ok",
+        "health": "/health",
+        "documentation": "/docs"
+    }
+
 ms = lambda t0: round((time.perf_counter() - t0) * 1000, 3)
 
 
