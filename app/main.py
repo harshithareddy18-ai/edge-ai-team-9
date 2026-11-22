@@ -30,10 +30,10 @@ N_PARAMS = sum(p.numel() for p in net.parameters())
 
 
 class Reading(BaseModel):
-    battery_v: float = Field(ge=0.0, le=5.0)
     temp_c: float = Field(ge=-40.0, le=85.0)
     rings_per_day: float = Field(ge=0.0, le=200.0)
-    wifi_rssi_dbm: float = Field(ge=-100.0, le=0.0)
+    battery_v: float = Field(gt=0.0, le=5.0)
+    wifi_rssi_dbm: float = Field(ge=-100.0, lt=0.0)
     age_months: float = Field(ge=0.0, le=120.0)
 
 
